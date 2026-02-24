@@ -1,7 +1,7 @@
 namespace weapon;
 public class Weapon
 {
-    public int Id;
+    public int ID;
     public string Name;
 
     public int MaximumDamage;
@@ -9,7 +9,7 @@ public class Weapon
 
     public Weapon(int id, string name, int maximumDamage)
     {
-        Id = id;
+        ID = id;
         Name = name;
         MaximumDamage = maximumDamage;
     }
