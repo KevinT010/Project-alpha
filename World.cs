@@ -1,3 +1,5 @@
+using weapon;
+
 public static class World
 {
 
@@ -39,8 +41,10 @@ public static class World
 
     public static void PopulateWeapons()
     {
-        Weapons.Add(new Weapon(WEAPON_ID_RUSTY_SWORD, "Rusty sword", 5));
-        Weapons.Add(new Weapon(WEAPON_ID_CLUB, "Club", 10));
+        Weapons.Add(new Weapon(1, "Rusty sword", 50));
+        Weapons.Add(new Weapon(2, "Club", 60));
+        Weapons.Add(new Weapon(3, "Dagger", 40));
+        Weapons.Add(new Weapon(4, "Longsword", 70));
     }
 
     public static void PopulateMonsters()
