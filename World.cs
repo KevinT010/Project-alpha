@@ -170,7 +170,7 @@ public static class World
         return null;
     }
 
-    public static Weapon WeaponByID(int id)
+    public static Weapon? WeaponByID(int id)
     {
         foreach (Weapon item in Weapons)
         {
