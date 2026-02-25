@@ -1,6 +1,4 @@
-using weapon;
-
-namespace ProjectAlpha;
+namespace weapon;
 
 public class Reward(int gold, Weapon? weaponReward = null)
 {
@@ -23,12 +21,18 @@ public static class RewardSystem
 {
     public static Reward GetQuestReward(int questID) => questID switch
     {
-        World.QUEST_ID_CLEAR_ALCHEMIST_GARDEN => new Reward(25),
-        World.QUEST_ID_CLEAR_FARMERS_FIELD => new Reward(50, new Weapon(1, "Club", 5)),
-        World.QUEST_ID_COLLECT_SPIDER_SILK => new Reward(75, new Weapon(2, "Rusty Sword", 10)),
+        World.QUEST_ID_CLEAR_ALCHEMIST_GARDEN => new Reward(25, World.WeaponByID(1)),
+        World.QUEST_ID_CLEAR_FARMERS_FIELD => new Reward(50, World.WeaponByID(2)),
+        World.QUEST_ID_COLLECT_SPIDER_SILK => new Reward(75, World.WeaponByID(3)),
         _ => new Reward(0)
     };
-
+    public static Reward GetFirstTryMonsterReward(int monsterID) => monsterID switch
+    {
+        World.MONSTER_ID_RAT => new Reward(10, World.WeaponByID(4)),
+        World.MONSTER_ID_SNAKE => new Reward(25, World.WeaponByID(4)),
+        World.MONSTER_ID_GIANT_SPIDER => new Reward(50, World.WeaponByID(4)),
+        _ => new Reward(0)
+    };
     public static Reward GetMonsterReward(int monsterID) => monsterID switch
     {
         World.MONSTER_ID_RAT => new Reward(10),
