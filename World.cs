@@ -1,4 +1,5 @@
 using weapon;
+using monster;
 
 public static class World
 {
@@ -47,13 +48,13 @@ public static class World
 
     public static void PopulateMonsters()
     {
-        Monster rat = new Monster(MONSTER_ID_RAT, "rat", 1, 3, 3);
+        Monster rat = new Monster(MONSTER_ID_RAT, "rat", 10, 150, 150);
 
 
-        Monster snake = new Monster(MONSTER_ID_SNAKE, "snake", 10, 7, 7);
+        Monster snake = new Monster(MONSTER_ID_SNAKE, "snake", 15, 170, 170);
 
 
-        Monster giantSpider = new Monster(MONSTER_ID_GIANT_SPIDER, "giant spider", 3, 10, 10);
+        Monster giantSpider = new Monster(MONSTER_ID_GIANT_SPIDER, "giant spider", 20, 10, 200);
 
 
         Monsters.Add(rat);
@@ -183,7 +184,7 @@ public static class World
 
 
 
-    public static Monster MonsterByID(int id)
+    public static Monster? MonsterByID(int id)
     {
         foreach (Monster monster in Monsters)
         {
