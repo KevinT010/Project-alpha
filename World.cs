@@ -10,8 +10,6 @@ public static class World
     public static readonly List<Location> Locations = new List<Location>();
     public static readonly Random RandomGenerator = new Random();
 
-    public const int WEAPON_ID_RUSTY_SWORD = 1;
-    public const int WEAPON_ID_CLUB = 2;
 
     public const int MONSTER_ID_RAT = 1;
     public const int MONSTER_ID_SNAKE = 2;
