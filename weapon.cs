@@ -5,7 +5,6 @@ public class Weapon
 {
     public int ID;
     public string Name;
-
     public int MaximumDamage;
 
 
@@ -16,11 +15,12 @@ public class Weapon
         MaximumDamage = maximumDamage;
     }
 
+    private static Random random = new Random();
+
     public void Attack(int maximumDamage, Monster monster, bool isCriticalHit = false)
     {
-        Random random = new Random();
         int damage = random.Next(1, maximumDamage);
-        bool isCritical = random.NextDouble() < 0.4;   
+        bool isCritical = random.NextDouble() < 0.4;
 
         if (isCriticalHit || isCritical)
         {
@@ -32,7 +32,7 @@ public class Weapon
             Console.WriteLine($"You attack the {monster.Name} for {damage} damage.");
         }
 
-        monster.currentHitPoints -= damage;
+        monster.CurrentHitPoints -= damage;
     }
 
 }

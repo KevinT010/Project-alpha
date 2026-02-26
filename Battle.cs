@@ -1,4 +1,3 @@
-using weapon;
 using monster;
 using player;
 
@@ -10,11 +9,11 @@ public static class Battle
         Console.WriteLine($"A wild {monster.Name} appears!");
         Console.WriteLine("===================================");
 
-        while (player.CurrentHitPoints > 0 && monster.currentHitPoints > 0)
+        while (player.CurrentHitPoints > 0 && monster.CurrentHitPoints > 0)
         {
             Console.WriteLine("\n---------------------------");
             Console.WriteLine($"{player.Name} HP: {player.CurrentHitPoints}/{player.MaximumHitPoints}");
-            Console.WriteLine($"{monster.Name} HP: {monster.currentHitPoints}/{monster.maximumHitPoints}");
+            Console.WriteLine($"{monster.Name} HP: {monster.CurrentHitPoints}/{monster.MaximumHitPoints}");
             Console.WriteLine("---------------------------");
 
             Console.WriteLine("What do you want to do?");
@@ -29,7 +28,7 @@ public static class Battle
                 Console.WriteLine($"\nYou grip your {player.CurrentWeapon.Name} tightly.");
                 player.CurrentWeapon.Attack(player.CurrentWeapon.MaximumDamage, monster);
 
-                if (monster.currentHitPoints > 0)
+                if (monster.CurrentHitPoints > 0)
                 {
                     Console.WriteLine($"\nThe {monster.Name} growls and prepares to strike!");
                     monster.Attack(monster.MaximumDamage, player);
@@ -52,9 +51,9 @@ public static class Battle
             player.CurrentHitPoints = 0;
             Console.WriteLine("\nYou have been defeated.");
         }
-        else if (monster.currentHitPoints <= 0)
+        else if (monster.CurrentHitPoints <= 0)
         {
-            monster.currentHitPoints = 0;
+            monster.CurrentHitPoints = 0;
             Console.WriteLine($"\nYou defeated the {monster.Name}!");
         }
     }
