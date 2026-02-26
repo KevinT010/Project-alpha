@@ -58,7 +58,7 @@ public static class Battle
             Console.WriteLine($"\nYou defeated the {monster.Name}!");
              return "Victory";
         }
-        else if(player.CurrentHitPoints >= 0 && monster.CurrentHitPoints > 0)
+        else if(player.CurrentHitPoints > 0 && monster.CurrentHitPoints > 0)
         {
             Console.WriteLine("\nYou escaped the battle!");
             return "Escaped";
