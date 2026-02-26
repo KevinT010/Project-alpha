@@ -1,3 +1,5 @@
+namespace quest;
+
 using player;
 
 public class Quest
@@ -77,6 +79,4 @@ qAcceptDeny is the sentence given to the player if they previously denied the qu
         Console.WriteLine($"You have completed the quest {qName}!");
         Console.WriteLine("Here's your reward: ");
     }
-
-
 }
