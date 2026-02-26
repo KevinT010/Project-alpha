@@ -1,3 +1,6 @@
+using weapon;
+using monster;
+
 public static class World
 {
 
@@ -7,8 +10,6 @@ public static class World
     public static readonly List<Location> Locations = new List<Location>();
     public static readonly Random RandomGenerator = new Random();
 
-    public const int WEAPON_ID_RUSTY_SWORD = 1;
-    public const int WEAPON_ID_CLUB = 2;
 
     public const int MONSTER_ID_RAT = 1;
     public const int MONSTER_ID_SNAKE = 2;
@@ -39,19 +40,21 @@ public static class World
 
     public static void PopulateWeapons()
     {
-        Weapons.Add(new Weapon(WEAPON_ID_RUSTY_SWORD, "Rusty sword", 5));
-        Weapons.Add(new Weapon(WEAPON_ID_CLUB, "Club", 10));
+        Weapons.Add(new Weapon(1, "Rusty sword", 50));
+        Weapons.Add(new Weapon(2, "Club", 60));
+        Weapons.Add(new Weapon(3, "Dagger", 40));
+        Weapons.Add(new Weapon(4, "Longsword", 70));
     }
 
     public static void PopulateMonsters()
     {
-        Monster rat = new Monster(MONSTER_ID_RAT, "rat", 1, 3, 3);
+        Monster rat = new Monster(MONSTER_ID_RAT, "rat", 10, 150, 150);
 
 
-        Monster snake = new Monster(MONSTER_ID_SNAKE, "snake", 10, 7, 7);
+        Monster snake = new Monster(MONSTER_ID_SNAKE, "snake", 15, 170, 170);
 
 
-        Monster giantSpider = new Monster(MONSTER_ID_GIANT_SPIDER, "giant spider", 3, 10, 10);
+        Monster giantSpider = new Monster(MONSTER_ID_GIANT_SPIDER, "giant spider", 20, 10, 200);
 
 
         Monsters.Add(rat);
@@ -166,7 +169,7 @@ public static class World
         return null;
     }
 
-    public static Weapon WeaponByID(int id)
+    public static Weapon? WeaponByID(int id)
     {
         foreach (Weapon item in Weapons)
         {
@@ -181,7 +184,7 @@ public static class World
 
 
 
-    public static Monster MonsterByID(int id)
+    public static Monster? MonsterByID(int id)
     {
         foreach (Monster monster in Monsters)
         {
