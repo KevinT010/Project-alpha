@@ -1,5 +1,7 @@
 using System.ComponentModel;
 using System.Dynamic;
+namespace player;
+using weapon;
 
 public class Player
 {

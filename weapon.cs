@@ -1,10 +1,10 @@
 namespace weapon;
+
 using monster;
 public class Weapon
 {
     public int ID;
     public string Name;
-
     public int MaximumDamage;
 
 
@@ -15,20 +15,24 @@ public class Weapon
         MaximumDamage = maximumDamage;
     }
 
-    public void Attack(int maximumDamage, Monster monster)
-    {
-        Random random = new Random();
-        int damage = random.Next(1, maximumDamage);
-        monster.currentHitPoints -= damage;
-        Console.WriteLine($"You attack the {monster.currentHitPoints} for {damage} damage.");
-    }
+    private static Random random = new Random();
 
-    public void CriticalHit(int maximumDamage, Monster monster)
+    public void Attack(int maximumDamage, Monster monster, bool isCriticalHit = false)
     {
-        Random random = new Random();
-        int damage = random.Next(1, maximumDamage) * 2;
-        monster.currentHitPoints -= damage;
-        Console.WriteLine($"You land a critical hit on the {Name} for {damage} damage!");
+        int damage = random.Next(1, maximumDamage);
+        bool isCritical = random.NextDouble() < 0.4;
+
+        if (isCriticalHit || isCritical)
+        {
+            damage *= 2;
+            Console.WriteLine($"You land a critical hit on the {monster.Name} for {damage} damage!");
+        }
+        else
+        {
+            Console.WriteLine($"You attack the {monster.Name} for {damage} damage.");
+        }
+
+        monster.CurrentHitPoints -= damage;
     }
 
 }
