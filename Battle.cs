@@ -16,9 +16,9 @@ public static class Battle
             Console.WriteLine($"{monster.Name} HP: {monster.CurrentHitPoints}/{monster.MaximumHitPoints}");
             Console.WriteLine("---------------------------");
 
-            Console.WriteLine("What do you want to do?");
+            Console.WriteLine("What do you want to do attack or flee?");
             Console.WriteLine("1) Attack");
-            Console.WriteLine("2) Flee");
+            Console.WriteLine("2) Flee (lose 10 HP)");
             Console.Write("> ");
 
             string choice = Console.ReadLine() ?? string.Empty;

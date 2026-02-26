@@ -7,7 +7,6 @@ public class Weapon
     public string Name;
     public int MaximumDamage;
 
-
     public Weapon(int id, string name, int maximumDamage)
     {
         ID = id;
