@@ -68,7 +68,11 @@ public static class World
             new Quest(
                 QUEST_ID_CLEAR_ALCHEMIST_GARDEN,
                 "Clear the alchemist's garden",
-                "Kill rats in the alchemist's garden ");
+                "Kill rats in the alchemist's garden ",
+                "I can't w'rk mine own landeth with those pesky snakes slith'ring 'round! Shall thee holp me?",
+                "Mine herbs art saved! Thy aid bringeth hope back to my humble garden.",
+                "Alack! Those gnawing pests shalt continue their feast upon my poor plants.",
+                "Those cursed rats yet feast upon mine herbs. Wilt thou now taketh up the task and aid me?");
 
 
 
@@ -76,14 +80,22 @@ public static class World
             new Quest(
                 QUEST_ID_CLEAR_FARMERS_FIELD,
                 "Clear the farmer's field",
-                "Kill snakes in the farmer's field");
+                "Kill snakes in the farmer's field",
+                "Those rats art nibbling on mine own h'rbs! I couldst very much useth an adventur'r to taketh careth of those folk...",
+                "Ah, thou art a true saviour! May those slithering fiends trouble our fields no more.",
+                "Then the serpents shalt keep their wicked hold upon mine land… woe is me.",
+                "The serpents still writhe across mine fields… hast thou come to lend thy blade at last?");
 
 
         Quest clearSpidersForest =
                 new Quest(
                         QUEST_ID_COLLECT_SPIDER_SILK,
                         "Collect spider silk",
-                        "Kill spiders in the spider forest");
+                        "Kill spiders in the spider forest",
+                        "I shalt releaseth the town filks of their feareth!",
+                        "Yesss… thou hast chooseth doom. The forest shalt be thy grave.",
+                        "Flee, little one… thou canst not escapeth the web forever.",
+                        "Foolish mortal… the webs grow thicker whilst thou doth hesitate. Wilt thou now face us, or flee once more?");
 
 
         Quests.Add(clearAlchemistGarden);
