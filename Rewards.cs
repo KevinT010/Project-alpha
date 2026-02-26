@@ -2,8 +2,8 @@ namespace weapon;
 
 public class Reward(int gold, Weapon? weaponReward = null)
 {
-    public int Gold { get; set; } = gold;
-    public Weapon? WeaponReward { get; set; } = weaponReward;
+    public int Gold = gold;
+    public Weapon? WeaponReward = weaponReward;
 
     public void DisplayReward()
     {
