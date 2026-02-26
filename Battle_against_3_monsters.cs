@@ -17,7 +17,7 @@ public class Battle_against_3_monsters
         for (int i = 1; i <= amount; i++)
         {
             Console.WriteLine("\n===================================");
-            Console.WriteLine($"*** BATTLE {i} OF {amount} STARTS ***");
+            Console.WriteLine($"BATTLE {i} OF {amount} STARTS");
             Console.WriteLine("===================================");
 
             monster.CurrentHitPoints = monster.MaximumHitPoints;
