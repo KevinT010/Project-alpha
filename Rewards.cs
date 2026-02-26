@@ -26,13 +26,6 @@ public static class RewardSystem
         World.QUEST_ID_COLLECT_SPIDER_SILK => new Reward(75, World.WeaponByID(3)),
         _ => new Reward(0)
     };
-    public static Reward GetFirstTryMonsterReward(int monsterID) => monsterID switch
-    {
-        World.MONSTER_ID_RAT => new Reward(10, World.WeaponByID(4)),
-        World.MONSTER_ID_SNAKE => new Reward(25, World.WeaponByID(4)),
-        World.MONSTER_ID_GIANT_SPIDER => new Reward(50, World.WeaponByID(4)),
-        _ => new Reward(0)
-    };
     public static Reward GetMonsterReward(int monsterID) => monsterID switch
     {
         World.MONSTER_ID_RAT => new Reward(10),
