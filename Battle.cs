@@ -1,3 +1,4 @@
+namespace battle;
 using monster;
 using player;
 
@@ -49,18 +50,15 @@ public static class Battle
         if (player.CurrentHitPoints <= 0)
         {
             player.CurrentHitPoints = 0;
-            Console.WriteLine("\nYou have been defeated.");
             return "Defeat";
         }
         else if (monster.CurrentHitPoints <= 0)
         {
             monster.CurrentHitPoints = 0;
-            Console.WriteLine($"\nYou defeated the {monster.Name}!");
              return "Victory";
         }
         else if(player.CurrentHitPoints > 0 && monster.CurrentHitPoints > 0)
         {
-            Console.WriteLine("\nYou escaped the battle!");
             return "Escaped";
         }
 
