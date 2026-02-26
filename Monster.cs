@@ -1,14 +1,16 @@
 namespace monster;
 
+using player;
+
 public class Monster
 {
     public int ID;
     public string Name;
     public int MaximumDamage;
-   
-   public int currentHitPoints;
 
-   public int maximumHitPoints;
+    public int currentHitPoints;
+
+    public int maximumHitPoints;
 
     public Monster(int id, string name, int maximumDamage, int currentHitPoints, int maximumHitPoints)
     {
@@ -17,14 +19,20 @@ public class Monster
         MaximumDamage = maximumDamage;
         this.currentHitPoints = currentHitPoints;
         this.maximumHitPoints = maximumHitPoints;
-        
+
     }
 
-    public void Attack(int maximumDamage)
+    public void Attack(int maximumDamage, Player player)
     {
         Random random = new Random();
         int damage = random.Next(1, maximumDamage);
-        //currentHitPoints -= damage;
+        player.CurrentHitPoints -= damage;
         Console.WriteLine($"The {Name} attacks you for {damage} damage.");
+    }
+
+    public void Flee(Player player)
+    {
+        player.CurrentHitPoints -= 10;
+        Console.WriteLine($"You flee from the {Name}!");
     }
 }
