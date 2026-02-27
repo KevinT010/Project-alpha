@@ -14,11 +14,12 @@ public class Location
     public Location LocationToEast;
     public Location LocationToSouth;
     public Location LocationToWest;
-    
+
 
     // 2. Set values with constructor.
-    
-    public Location(int id, string name, string description Quest quest, Monster monster) {
+
+    public Location(int id, string name, string description, Quest quest, Monster monster)
+    {
         this.ID = id;
         this.Name = name;
         this.Description = description;

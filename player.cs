@@ -1,29 +1,74 @@
 using System.ComponentModel;
-using System.Dynamic;
 
 public class Player
 {
-
-    // 1. Declaring fields.
-
-    // basic fields    
+    // Fields
     public string Name;
     public int CurrentHitPoints;
     public int MaximumHitPoints;
-    
-    // object fields || Nog niet aangemaakt
     public Weapon CurrentWeapon;
     public Location CurrentLocation;
-    
-    public Player(string name, int CurrentHitPoints, int MaximumHitPoints, Weapon weapon, Location CurrentLocation)
+
+    // Constructor
+    public Player(string name, int currentHitPoints, int maximumHitPoints, Weapon weapon, Location location)
     {
         this.Name = name;
-        this.CurrentHitPoints = CurrentHitPoints;
-        this.MaximumHitPoints = MaximumHitPoints; 
+        this.CurrentHitPoints = currentHitPoints;
+        this.MaximumHitPoints = maximumHitPoints;
         this.CurrentWeapon = weapon;
-        this.CurrentLocation = CurrentLocation;
+        this.CurrentLocation = location;
     }
 
-    // public static void 
 
+    // use currentlocation
+    // update current location
+
+    public void MoveToNorth()
+    {
+        if (CurrentLocation.LocationToNorth != null)
+        {
+            CurrentLocation = CurrentLocation.LocationToNorth;
+        }
+        else
+        {
+            Console.WriteLine("You can't move this way!");
+        }
+    }    
+    
+    public void MoveToEast()
+    {
+        if(CurrentLocation.LocationToEast != null)
+        CurrentLocation = CurrentLocation.LocationToEast;
+        else
+        {
+            Console.WriteLine("You can't move this way!");
+        }
+    }
+    
+    public void MoveToSouth()
+    {
+        if(CurrentLocation.LocationToSouth != null)
+        {
+            Console.WriteLine("You can't move this way!");
+        }
+    }
+    public void MoveToWest()
+    {
+        if(CurrentLocation.LocationToWest != null)
+        {
+            Console.WriteLine("You can't move this way!"); 
+        }
+    }
+    
+
+
+
+
+    // public static void moveToEast(){}
+    
+    // public static void moveToSouth(){}
+    
+    // public static void moveToWest(){}
+
+    
 }
