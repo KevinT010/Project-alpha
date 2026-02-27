@@ -1,7 +1,3 @@
-using weapon;
-using monster;
-namespace world;
-
 public static class World
 {
 

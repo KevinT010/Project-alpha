@@ -1,7 +1,3 @@
-namespace monster;
-
-using player;
-
 public class Monster
 {
     public int ID;

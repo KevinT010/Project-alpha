@@ -1,7 +1,3 @@
-namespace battle;
-using monster;
-using player;
-
 public static class Battle
 {
     public static string StartFight(Player player, Monster monster)
@@ -46,6 +42,7 @@ public static class Battle
                 Console.WriteLine("Invalid option!");
             }
         }
+
 
         if (player.CurrentHitPoints <= 0)
         {

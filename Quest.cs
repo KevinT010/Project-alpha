@@ -1,7 +1,3 @@
-namespace quest;
-
-using player;
-
 public class Quest
 {
 
@@ -11,6 +7,8 @@ public class Quest
     public string qLine;
     public bool qStarted;
     public bool qCompleted;
+    public bool qDenied;
+    public bool qAccept; 
 
 
 
@@ -19,7 +17,7 @@ qLine is the sentence given to the player if they enter a location for the first
 qAccept is the sentence given to the player if they immediately accept the quest.
 qDeny is the sentence given to the player if they deny a quest. this sentence will be given every time the player denies said quest.
 qAcceptDeny is the sentence given to the player if they previously denied the quest, but then accept it. this too will happen every time a player accepts a quest after denying it previously.
-*/
+*/  
     public Quest(int qID, string qName, string qDescription, string qLine, string qAccept, string qDeny, string qAcceptDeny)
     {
         this.qID = qID;
@@ -29,6 +27,7 @@ qAcceptDeny is the sentence given to the player if they previously denied the qu
         this.qStarted = false;
         this.qCompleted = false;
         this.qDenied = false;
+        this.qAccept = false; 
     }
 
     public void qPrompt()
@@ -36,7 +35,7 @@ qAcceptDeny is the sentence given to the player if they previously denied the qu
         while (! qStarted && ! qDenied)
         {
             Console.WriteLine("Will you accept the quest?");
-            if (Console.ReadLine().toUpper() == "Y")
+            if (Console.ReadLine().ToUpper() == "Y")
             {
                     Console.WriteLine(qAccept);
                     qStarted = true;
