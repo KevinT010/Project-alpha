@@ -1,7 +1,3 @@
-using weapon;
-using player;
-
-
 public static class Rewards
 {
     public class Reward
