@@ -3,12 +3,12 @@ public static class Rewards
     public class Reward
     {
         public int Coins;
-        public Weapon? WeaponItem;
+        public Weapon? Weapon;
 
-        public Reward(int coins, Weapon? weaponItem)
+        public Reward(int coins, Weapon? weapon)
         {
             Coins = coins;
-            WeaponItem = weaponItem;
+            Weapon = weapon;
         }
     }
 
@@ -34,10 +34,10 @@ public static class Rewards
             Console.WriteLine($"You received {reward.Coins} coins");
             Console.WriteLine($"Total Coins: {player.Coins}");
 
-            if (reward.WeaponItem != null)
+            if (reward.Weapon != null)
             {
-                player.Inventory.Add(reward.WeaponItem);
-                Console.WriteLine($"You received a {reward.WeaponItem.Name}!");
+                player.CurrentWeapon = reward.Weapon;
+                Console.WriteLine($"You received a {reward.Weapon.Name}!");
             }
             
         }
