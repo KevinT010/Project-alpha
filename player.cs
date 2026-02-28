@@ -61,6 +61,10 @@ public class Player
     {
         if (CurrentLocation.LocationToWest != null)
         {
+            CurrentLocation = CurrentLocation.LocationToWest;
+        }
+        else
+        {
             Console.WriteLine("You can't move this way!");
         }
     }

@@ -48,10 +48,10 @@ public static class World
         Monster rat = new Monster(MONSTER_ID_RAT, "rat", 1, 150, 150);
 
 
-        Monster snake = new Monster(MONSTER_ID_SNAKE, "snake", 6, 170, 170);
+        Monster snake = new Monster(MONSTER_ID_SNAKE, "snake", 2, 170, 170);
 
 
-        Monster giantSpider = new Monster(MONSTER_ID_GIANT_SPIDER, "giant spider", 7, 200, 200);
+        Monster giantSpider = new Monster(MONSTER_ID_GIANT_SPIDER, "giant spider", 3, 200, 200);
 
 
         Monsters.Add(rat);

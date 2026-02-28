@@ -17,9 +17,9 @@ public static class Rewards
     public static void GiveRewards()
     {
 
-        QuestRewards.Add(World.QUEST_ID_CLEAR_ALCHEMIST_GARDEN, new Reward(20, World.WeaponByID(1)));
-        QuestRewards.Add(World.QUEST_ID_CLEAR_FARMERS_FIELD, new Reward(50, World.WeaponByID(2)));
-        QuestRewards.Add(World.QUEST_ID_COLLECT_SPIDER_SILK, new Reward(100, World.WeaponByID(3)));
+        QuestRewards.Add(World.QUEST_ID_CLEAR_ALCHEMIST_GARDEN, new Reward(20, World.WeaponByID(2)));
+        QuestRewards.Add(World.QUEST_ID_CLEAR_FARMERS_FIELD, new Reward(50, World.WeaponByID(3)));
+        QuestRewards.Add(World.QUEST_ID_COLLECT_SPIDER_SILK, new Reward(100, World.WeaponByID(4)));
     }
 
     public static void QuestReward(Player player, int questId)
