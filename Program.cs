@@ -67,23 +67,23 @@ public class Program
 
     public static void Travel(Player player)
     {
-        Console.WriteLine($"You are now at: {player.CurrentLocation.Name}. From here u can go:");
+        Console.WriteLine($"\nYou are now at: {player.CurrentLocation.Name}.\nFrom here you can go:\n");
         
         if(player.CurrentLocation.LocationToNorth != null)
         {
-            Console.WriteLine("N - North");
+            Console.WriteLine($"N - North: {player.CurrentLocation.LocationToNorth.Name}");
         }
         if(player.CurrentLocation.LocationToEast != null)
         {
-            Console.WriteLine("E - East");
+            Console.WriteLine($"E - East: {player.CurrentLocation.LocationToEast.Name}");
         }
         if(player.CurrentLocation.LocationToSouth != null)
         {
-            Console.WriteLine("S - South");
+            Console.WriteLine($"S - South: {player.CurrentLocation.LocationToSouth.Name}");
         }
         if(player.CurrentLocation.LocationToWest != null)
         {
-            Console.WriteLine("W - West");
+            Console.WriteLine($"W - West: {player.CurrentLocation.LocationToWest.Name}");
         }
 
         Console.WriteLine("> "); 
