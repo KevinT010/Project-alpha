@@ -45,13 +45,13 @@ public static class World
 
     public static void PopulateMonsters()
     {
-        Monster rat = new Monster(MONSTER_ID_RAT, "rat", 10, 150, 150);
+        Monster rat = new Monster(MONSTER_ID_RAT, "rat", 1, 150, 150);
 
 
-        Monster snake = new Monster(MONSTER_ID_SNAKE, "snake", 15, 170, 170);
+        Monster snake = new Monster(MONSTER_ID_SNAKE, "snake", 6, 170, 170);
 
 
-        Monster giantSpider = new Monster(MONSTER_ID_GIANT_SPIDER, "giant spider", 20, 200, 200);
+        Monster giantSpider = new Monster(MONSTER_ID_GIANT_SPIDER, "giant spider", 7, 200, 200);
 
 
         Monsters.Add(rat);
@@ -206,7 +206,7 @@ public static class World
         return null;
     }
 
-    public static Quest QuestByID(int id)
+    public static Quest? QuestByID(int id)
     {
         foreach (Quest quest in Quests)
         {

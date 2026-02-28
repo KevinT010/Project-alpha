@@ -18,6 +18,7 @@ public class Program
             World.WeaponByID(1),
             World.LocationByID(World.LOCATION_ID_HOME),
             new List<string>(),
+            new List<string>(), 
             0);
 
 
@@ -48,7 +49,6 @@ public class Program
                     Console.WriteLine($"Coins: {player.Coins}");
                     Console.WriteLine($"Quests completed: {player.CompletedQuests.Count}");
                     break;
-
                 case "2":
                     Travel(player);
                     break;
@@ -112,5 +112,16 @@ public class Program
 
     }
 
+    // codition triggerd -> public void ActivateQuest(Player player)
+    
+    // if quest is available -> public void ActivateQuest(Player player)
+    // { public static void Travel(Player player) }
+
+    // move to battle area 
+    // public static void FightMonsters(Player player, int monsterID, string monsterName, int amount, Quest quest) || battle_against3_monsters.cs
+    
+    // (result van questavailablehere ).activatequest  || locations.cs {}
+    
+    
 
 }
