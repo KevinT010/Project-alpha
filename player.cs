@@ -6,17 +6,19 @@ public class Player
     public int MaximumHitPoints;
     public Weapon CurrentWeapon;
     public Location CurrentLocation; 
+    public List<string> CurrentQuests;
     public List<string> CompletedQuests;
     public int Coins = 0;  
 
     // Constructor
-    public Player(string name, int currentHitPoints, int maximumHitPoints, Weapon weapon, Location location, List<string> completedquests, int coins)
+    public Player(string name, int currentHitPoints, int maximumHitPoints, Weapon weapon, Location location, List<string> currentquests, List<string> completedquests, int coins)
     {
         this.Name = name;
         this.CurrentHitPoints = currentHitPoints;
         this.MaximumHitPoints = maximumHitPoints;
         this.CurrentWeapon = weapon;
         this.CurrentLocation = location;
+        this.CurrentQuests = currentquests;
         this.CompletedQuests = completedquests;
     }
 

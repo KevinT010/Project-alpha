@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 public class Quest
 {
 
@@ -5,10 +7,12 @@ public class Quest
     public string qName;
     public string qDescription;
     public string qLine;
+    public string qAccept;
+    public string qDeny;
+    public string qAcceptDeny;
     public bool qStarted;
     public bool qCompleted;
     public bool qDenied;
-    public bool qAccept; 
 
 
 
@@ -24,10 +28,12 @@ qAcceptDeny is the sentence given to the player if they previously denied the qu
         this.qName = qName;
         this.qDescription = qDescription;
         this.qLine = qLine;
+        this.qAccept = qAccept;
+        this.qDeny = qDeny;
+        this.qAcceptDeny = qAcceptDeny;
         this.qStarted = false;
         this.qCompleted = false;
         this.qDenied = false;
-        this.qAccept = false; 
     }
 
     public void qPrompt()
@@ -35,14 +41,15 @@ qAcceptDeny is the sentence given to the player if they previously denied the qu
         while (! qStarted && ! qDenied)
         {
             Console.WriteLine("Will you accept the quest?");
-            if (Console.ReadLine().ToUpper() == "Y")
+            string playeranswer = Console.ReadLine().ToUpper();
+            if (playeranswer == "Y")
             {
                     Console.WriteLine(qAccept);
                     qStarted = true;
-                    qCurrent = qID;
+                    //player.CurrentQuests.Add(qName) (weet ff niet hoe);
             }
 
-            else if (Console.ReadLine().ToUpper() == "N")
+            else if (playeranswer == "N")
             {
                     Console.WriteLine(qDeny);
                     qDenied = true;
@@ -57,24 +64,24 @@ qAcceptDeny is the sentence given to the player if they previously denied the qu
             if(! qDenied)
             {
                 Console.WriteLine(qLine);
-                Console.WriteLine(&"'{qName}'   {qDescription}");
-                qPrompt;
+                Console.WriteLine(qName + ": " + qDescription);
+                qPrompt();
             }
 
             else if(qDenied)
             {
                 Console.WriteLine(qAcceptDeny);
-                Console.WriteLine(&"'{qName}'   {qDescription}");
+                Console.WriteLine(qName + ": " + qDescription);
                 qDenied = false;
-                qPrompt;
+                qPrompt();
             }
         }
     }
 
-    public void CompleteQuest()
+    public void CompleteQuest(Player player) //Waarschijnlijk nog niet goed
     {
         qCompleted = true;
-        player.CompletedQuests.Add(qName);
+        player.CompletedQuests.Add(qName); //Waarschijnlijk nog niet goed
         Console.WriteLine($"You have completed the quest {qName}!");
         Console.WriteLine("Here's your reward: ");
     }
