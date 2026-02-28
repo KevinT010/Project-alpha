@@ -1,6 +1,3 @@
-namespace weapon;
-
-using monster;
 public class Weapon
 {
     public int ID;

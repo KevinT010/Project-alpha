@@ -1,8 +1,3 @@
-using battle;
-using monster;
-using player;
-using world;
-
 public class Battle_against_3_monsters
 {
     public static void FightMonsters(Player player, int monsterID, string monsterName, int amount)
