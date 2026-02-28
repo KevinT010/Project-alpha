@@ -42,7 +42,9 @@ public class Player
     public void MoveToEast()
     {
         if (CurrentLocation.LocationToEast != null)
+        {
             CurrentLocation = CurrentLocation.LocationToEast;
+        }
         else
         {
             Console.WriteLine("You can't move this way!");
@@ -52,14 +54,22 @@ public class Player
     public void MoveToSouth()
     {
         if (CurrentLocation.LocationToSouth != null)
+        {
             CurrentLocation = CurrentLocation.LocationToSouth;
+        }
         else
+        {
             Console.WriteLine("You can't move this way!");
+        }
     }
     
     public void MoveToWest()
     {
         if (CurrentLocation.LocationToWest != null)
+        {
+            CurrentLocation = CurrentLocation.LocationToWest;
+        }
+        else
         {
             Console.WriteLine("You can't move this way!");
         }
