@@ -34,7 +34,7 @@ qAcceptDeny is the sentence given to the player if they previously denied the qu
         this.qDenied = false;
     }
 
-    public void qPrompt()
+    public void qPrompt(Player player)
     {
         while (! qStarted && ! qDenied)
         {
@@ -44,7 +44,7 @@ qAcceptDeny is the sentence given to the player if they previously denied the qu
             {
                     Console.WriteLine(qAccept);
                     qStarted = true;
-                    //player.CurrentQuests.Add(qName) (weet ff niet hoe);
+                    player.CurrentQuests.Add(qName);
             }
 
             else if (playeranswer == "N")
@@ -55,7 +55,7 @@ qAcceptDeny is the sentence given to the player if they previously denied the qu
         }
     }
 
-    public void ActivateQuest()
+    public void ActivateQuest(Player player)
     {
         if (! qStarted && ! qCompleted)
         {
@@ -63,7 +63,7 @@ qAcceptDeny is the sentence given to the player if they previously denied the qu
             {
                 Console.WriteLine(qLine);
                 Console.WriteLine(qName + ": " + qDescription);
-                qPrompt();
+                qPrompt(player);
             }
 
             else if(qDenied)
@@ -71,16 +71,15 @@ qAcceptDeny is the sentence given to the player if they previously denied the qu
                 Console.WriteLine(qAcceptDeny);
                 Console.WriteLine(qName + ": " + qDescription);
                 qDenied = false;
-                qPrompt();
+                qPrompt(player);
             }
         }
     }
 
-    public void CompleteQuest(speler) //Waarschijnlijk nog niet goed
+    public void CompleteQuest(Player player) //Waarschijnlijk nog niet goed
     {
         qCompleted = true;
-        speler.CompletedQuests.Add(qName); //Waarschijnlijk nog niet goed
-        Console.WriteLine($"You have completed the quest {qName}!");
-        Console.WriteLine("Here's your reward: ");
+        player.CompletedQuests.Add(qName);
+        Rewards.QuestReward(player, this.qID);
     }
 }
