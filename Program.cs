@@ -1,2 +1,116 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
+
+public class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Hello adventurer, what is your name?");
+        string name = Console.ReadLine();
+
+        // if name is empty ask name again
+        // inplement later ? 
+
+        Player player = new Player(
+            name,
+            100,
+            100,
+            World.WeaponByID(1),
+            World.LocationByID(World.LOCATION_ID_HOME),
+            new List<string>(),
+            0);
+
+
+        Console.WriteLine($"Welcome {player.Name}!");
+
+        bool isPlaying = true;
+
+        while (isPlaying)
+        {
+            Console.WriteLine($"\n You are at {player.CurrentLocation.Name}");
+            Console.WriteLine($"{player.CurrentLocation.Description}");
+
+            Console.WriteLine($"\nWhat would u like to do?");
+            Console.WriteLine($"1. See game stats");
+            Console.WriteLine($"2. Travel to new location");
+
+            Console.WriteLine($"3. Quit");
+
+            string choice = Console.ReadLine()!;
+
+            switch (choice)
+            {
+                case "1":
+                    Console.WriteLine($"\n--- GAME STATS ---");
+                    Console.WriteLine($"Name: {player.Name}");
+                    Console.WriteLine($"HP: {player.CurrentHitPoints}/{player.MaximumHitPoints}");
+                    Console.WriteLine($"Weapon: {player.CurrentWeapon.Name}");
+                    Console.WriteLine($"Coins: {player.Coins}");
+                    Console.WriteLine($"Quests completed: {player.CompletedQuests.Count}");
+                    break;
+
+                case "2":
+                    Travel(player);
+                    break;
+
+                case "3":
+                    Console.WriteLine("Goodbye!");
+                    isPlaying = false;
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid option, try again.");
+                    break;
+            }
+        }
+    }
+    // Methods ---------------------------------- 
+
+    public static void Travel(Player player)
+    {
+        Console.WriteLine($"You are now at: {player.CurrentLocation}. From here u can go:");
+        
+        if(player.CurrentLocation.LocationToNorth != null)
+        {
+            Console.WriteLine("N - North");
+        }
+        if(player.CurrentLocation.LocationToEast != null)
+        {
+            Console.WriteLine("E - East");
+        }
+        if(player.CurrentLocation.LocationToSouth != null)
+        {
+            Console.WriteLine("S - South");
+        }
+        if(player.CurrentLocation.LocationToWest != null)
+        {
+            Console.WriteLine("W - West");
+        }
+
+        Console.WriteLine("> "); 
+        string direction = Console.ReadLine().ToUpper();
+
+        switch (direction)
+        {
+            case "N":
+                player.MoveToNorth();
+                break;
+            case "E":
+                player.MoveToEast();
+                break;
+            case "S":
+                player.MoveToSouth();
+                break;
+            case "W":
+                player.MoveToWest();
+                break;
+            default:
+                Console.WriteLine("Invalid direction!");
+                break;
+        }
+        Console.WriteLine($"You are now at: {player.CurrentLocation.Name}");
+
+    }
+
+
+}
