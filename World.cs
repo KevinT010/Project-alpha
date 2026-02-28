@@ -66,10 +66,10 @@ public static class World
                 QUEST_ID_CLEAR_ALCHEMIST_GARDEN,
                 "Clear the alchemist's garden",
                 "Kill rats in the alchemist's garden ",
-                "I can't w'rk mine own landeth with those pesky snakes slith'ring 'round! Shall thee holp me?",
-                "Mine herbs art saved! Thy aid bringeth hope back to my humble garden.",
-                "Alack! Those gnawing pests shalt continue their feast upon my poor plants.",
-                "Those cursed rats yet feast upon mine herbs. Wilt thou now taketh up the task and aid me?");
+                $"\nAs you approach the hut, a mysterious figure begins to speak to you: 'Those rats art nibbling on mine own h'rbs! I couldst very much useth an adventur'r to taketh careth of those folk...'\n",
+                $"\nNo more friendly than a second ago, the alchemist says: 'Mine herbs art saved! Thy aid bringeth hope back to my humble garden.'\n",
+                $"\nGrumpily the figure speaks: 'Those gnawing pests shalt continue their feast upon my poor plants.'\n",
+                $"\nStepping closer to the hut, once more do you hear the gravelly voice speak: 'Those cursed rats yet feast upon mine herbs. Wilt thou now taketh up the task and aid me?'\n");
 
 
 
@@ -78,21 +78,21 @@ public static class World
                 QUEST_ID_CLEAR_FARMERS_FIELD,
                 "Clear the farmer's field",
                 "Kill snakes in the farmer's field",
-                "Those rats art nibbling on mine own h'rbs! I couldst very much useth an adventur'r to taketh careth of those folk...",
-                "Ah, thou art a true saviour! May those slithering fiends trouble our fields no more.",
-                "Then the serpents shalt keep their wicked hold upon mine land… woe is me.",
-                "The serpents still writhe across mine fields… hast thou come to lend thy blade at last?");
+                $"\nAs you get closer to the farmhouse, a farmer catches your eye and begins to speak to you:\n'I can't w'rk mine own landeth with those pesky snakes slith'ring 'round! Shall thee holp me?'\n",
+                $"\nA smile dawns on the face of the farmer: 'Ah, thou art a true saviour! May those slithering fiends trouble our fields no more.'\n",
+                $"\nFrowning, the farmer says: 'The serpents shalt keep their wicked hold upon mine land… woe is me.'\n",
+                $"\nAs you approach the farmhouse once more, a familiar figure calls out to you: 'The serpents still writhe across mine fields… hast thou come to lend thy blade at last?'\n");
 
 
         Quest clearSpidersForest =
                 new Quest(
-                        QUEST_ID_COLLECT_SPIDER_SILK,
-                        "Collect spider silk",
-                        "Kill spiders in the spider forest",
-                        "I shalt releaseth the town filks of their feareth!",
-                        "Yesss… thou hast chooseth doom. The forest shalt be thy grave.",
-                        "Flee, little one… thou canst not escapeth the web forever.",
-                        "Foolish mortal… the webs grow thicker whilst thou doth hesitate. Wilt thou now face us, or flee once more?");
+                    QUEST_ID_COLLECT_SPIDER_SILK,
+                    "Collect spider silk",
+                    "Kill spiders in the spider forest",
+                    $"\nThe thuds of your shoes on the stone bridge get interrupted, several eyes following you as they speak: 'severaI shalt releaseth the town filks of their feareth!'\n",
+                    $"\nDetermined to help rid the town of evil, the creature hisses: 'Yesss… thou hast chooseth doom. The forest shalt be thy grave.'\n",
+                    $"\nDeciding to turn back, the creature says mockingly: 'Flee, little one… thou canst not escapeth the web forever.'\n",
+                    $"\nReturning to the place you once fled, the darkness roars: 'Foolish mortal… the webs grow thicker whilst thou doth hesitate. Wilt thou now face us, or flee once more?'\n");
 
 
         Quests.Add(clearAlchemistGarden);
@@ -105,7 +105,7 @@ public static class World
         // Create each location
         Location home = new Location(LOCATION_ID_HOME, "Home", "Your house. You really need to clean up the place.", null, null);
 
-        Location townSquare = new Location(LOCATION_ID_TOWN_SQUARE, "Town square", "You see a fountain.", null, null);
+        Location townSquare = new Location(LOCATION_ID_TOWN_SQUARE, "Town square", "Water trickles from the fountain.", null, null);
 
         Location alchemistHut = new Location(LOCATION_ID_ALCHEMIST_HUT, "Alchemist's hut", "There are many strange plants on the shelves.", null, null);
         alchemistHut.QuestAvailableHere = QuestByID(QUEST_ID_CLEAR_ALCHEMIST_GARDEN);

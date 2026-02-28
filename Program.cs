@@ -28,7 +28,7 @@ public class Program
 
         while (isPlaying)
         {
-            Console.WriteLine($"\nYou are at {player.CurrentLocation.Name}");
+            Console.WriteLine($"\nYou are currently at: {player.CurrentLocation.Name}");
             Console.WriteLine($"{player.CurrentLocation.Description}");
 
             Console.WriteLine($"\nWhat would u like to do?");
@@ -69,7 +69,7 @@ public class Program
 
     public static void Travel(Player player)
     {
-        Console.WriteLine($"\nYou are now at: {player.CurrentLocation.Name}.\nFrom here you can go:\n");
+        Console.WriteLine($"From here you can go:\n");
         
         if(player.CurrentLocation.LocationToNorth != null)
         {
@@ -109,14 +109,45 @@ public class Program
                 Console.WriteLine("Invalid direction!");
                 break;
         }
-        Console.WriteLine($"You are now at: {player.CurrentLocation.Name}");
         if(player.CurrentLocation.QuestAvailableHere != null)
         {
             player.CurrentLocation.QuestAvailableHere.ActivateQuest(player);
         }
+  
+        if (player.CurrentLocation.MonsterLivingHere != null)
+        {
+            Quest areaQuest = null!;
+            Location safeRetreat = null!;
 
+            if (player.CurrentLocation.ID == World.LOCATION_ID_ALCHEMISTS_GARDEN)
+            {
+                areaQuest = World.QuestByID(World.QUEST_ID_CLEAR_ALCHEMIST_GARDEN)!;
+                safeRetreat = World.LocationByID(World.LOCATION_ID_ALCHEMIST_HUT);
+            }
+            else if (player.CurrentLocation.ID == World.LOCATION_ID_FARM_FIELD)
+            {
+                areaQuest = World.QuestByID(World.QUEST_ID_CLEAR_FARMERS_FIELD)!;
+                safeRetreat = World.LocationByID(World.LOCATION_ID_FARMHOUSE);
+            }
+            else if (player.CurrentLocation.ID == World.LOCATION_ID_SPIDER_FIELD)
+            {
+                areaQuest = World.QuestByID(World.QUEST_ID_COLLECT_SPIDER_SILK)!;
+                safeRetreat = World.LocationByID(World.LOCATION_ID_BRIDGE);
+            }
 
+            if (areaQuest != null && areaQuest.Started && !areaQuest.Completed)
+            {
+                Battle_against_3_monsters.FightMonsters(player, player.CurrentLocation.MonsterLivingHere.ID, player.CurrentLocation.MonsterLivingHere.Name, 3, areaQuest
+                );
+
+                if (player.CurrentHitPoints > 0 && !areaQuest.Completed)
+                {
+                    player.CurrentLocation = safeRetreat;
+                }
+            }
+        }
     }
+}
 
     // codition triggerd -> public void ActivateQuest(Player player)
     
@@ -127,7 +158,3 @@ public class Program
     // public static void FightMonsters(Player player, int monsterID, string monsterName, int amount, Quest quest) || battle_against3_monsters.cs
     
     // (result van questavailablehere ).activatequest  || locations.cs {}
-    
-    
-
-}

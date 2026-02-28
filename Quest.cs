@@ -38,7 +38,7 @@ qAcceptDeny is the sentence given to the player if they previously denied the qu
     {
         while (! Started && ! Denied)
         {
-            Console.WriteLine("Will you accept the quest?");
+            Console.WriteLine("Will you accept the quest? (Y/N)");
             string playeranswer = Console.ReadLine().ToUpper();
             if (playeranswer == "Y")
             {
