@@ -1,16 +1,16 @@
 public class Quest
 {
 
-    public int qID;
-    public string qName;
-    public string qDescription;
-    public string qLine;
-    public string qAccept;
-    public string qDeny;
-    public string qAcceptDeny;
-    public bool qStarted;
-    public bool qCompleted;
-    public bool qDenied;
+    public int ID;
+    public string Name;
+    public string Description;
+    public string Line;
+    public string Accept;
+    public string Deny;
+    public string AcceptDeny;
+    public bool Started;
+    public bool Completed;
+    public bool Denied;
 
 
 
@@ -20,66 +20,66 @@ qAccept is the sentence given to the player if they immediately accept the quest
 qDeny is the sentence given to the player if they deny a quest. this sentence will be given every time the player denies said quest.
 qAcceptDeny is the sentence given to the player if they previously denied the quest, but then accept it. this too will happen every time a player accepts a quest after denying it previously.
 */  
-    public Quest(int qID, string qName, string qDescription, string qLine, string qAccept, string qDeny, string qAcceptDeny)
+    public Quest(int ID, string Name, string Description, string Line, string Accept, string Deny, string AcceptDeny)
     {
-        this.qID = qID;
-        this.qName = qName;
-        this.qDescription = qDescription;
-        this.qLine = qLine;
-        this.qAccept = qAccept;
-        this.qDeny = qDeny;
-        this.qAcceptDeny = qAcceptDeny;
-        this.qStarted = false;
-        this.qCompleted = false;
-        this.qDenied = false;
+        this.ID = ID;
+        this.Name = Name;
+        this.Description = Description;
+        this.Line = Line;
+        this.Accept = Accept;
+        this.Deny = Deny;
+        this.AcceptDeny = AcceptDeny;
+        this.Started = false;
+        this.Completed = false;
+        this.Denied = false;
     }
 
-    public void qPrompt(Player player)
+    public void Prompt(Player player)
     {
-        while (! qStarted && ! qDenied)
+        while (! Started && ! Denied)
         {
             Console.WriteLine("Will you accept the quest?");
             string playeranswer = Console.ReadLine().ToUpper();
             if (playeranswer == "Y")
             {
-                    Console.WriteLine(qAccept);
-                    qStarted = true;
-                    player.CurrentQuests.Add(qName);
+                    Console.WriteLine(Accept);
+                    Started = true;
+                    player.CurrentQuests.Add(Name);
             }
 
             else if (playeranswer == "N")
             {
-                    Console.WriteLine(qDeny);
-                    qDenied = true;
+                    Console.WriteLine(Deny);
+                    Denied = true;
             }
         }
     }
 
     public void ActivateQuest(Player player)
     {
-        if (! qStarted && ! qCompleted)
+        if (! Started && ! Completed)
         {
-            if(! qDenied)
+            if(! Denied)
             {
-                Console.WriteLine(qLine);
-                Console.WriteLine(qName + ": " + qDescription);
-                qPrompt(player);
+                Console.WriteLine(Line);
+                Console.WriteLine(Name + ": " + Description);
+                Prompt(player);
             }
 
-            else if(qDenied)
+            else if(Denied)
             {
-                Console.WriteLine(qAcceptDeny);
-                Console.WriteLine(qName + ": " + qDescription);
-                qDenied = false;
-                qPrompt(player);
+                Console.WriteLine(AcceptDeny);
+                Console.WriteLine(Name + ": " + Description);
+                Denied = false;
+                Prompt(player);
             }
         }
     }
 
     public void CompleteQuest(Player player) 
     {
-        qCompleted = true;
-        player.CompletedQuests.Add(qName);
-        Rewards.QuestReward(player, this.qID);
+        Completed = true;
+        player.CompletedQuests.Add(Name);
+        Rewards.QuestReward(player, this.ID);
     }
 }
