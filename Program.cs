@@ -47,6 +47,7 @@ public class Program
                     Console.WriteLine($"HP: {player.CurrentHitPoints}/{player.MaximumHitPoints}");
                     Console.WriteLine($"Weapon: {player.CurrentWeapon.Name}");
                     Console.WriteLine($"Coins: {player.Coins}");
+                    Console.WriteLine($"Current quest(s): {Convert.ToString(player.CurrentQuests)}");
                     Console.WriteLine($"Quests completed: {player.CompletedQuests.Count}");
                     break;
                 case "2":
@@ -109,6 +110,11 @@ public class Program
                 break;
         }
         Console.WriteLine($"You are now at: {player.CurrentLocation.Name}");
+        if(player.CurrentLocation.QuestAvailableHere != null)
+        {
+            player.CurrentLocation.QuestAvailableHere.ActivateQuest(player);
+        }
+
 
     }
 
