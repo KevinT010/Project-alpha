@@ -1,6 +1,6 @@
 public class Battle_against_3_monsters
 {
-    public static void FightMonsters(Player player, int monsterID, string monsterName, int amount)
+    public static void FightMonsters(Player player, int monsterID, string monsterName, int amount, Quest quest)
     {
         Monster? monster_template = World.MonsterByID(monsterID);
         if (monster_template == null)
@@ -52,6 +52,7 @@ public class Battle_against_3_monsters
         if (allDefeated)
         {
             Console.WriteLine($"\nCongratulations! You cleared the area of all the {monsterName}s!");
+            quest.CompleteQuest(player);
         }
     }
 }
