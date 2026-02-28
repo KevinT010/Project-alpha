@@ -78,10 +78,10 @@ qAcceptDeny is the sentence given to the player if they previously denied the qu
         }
     }
 
-    public void CompleteQuest(Player player) //Waarschijnlijk nog niet goed
+    public void CompleteQuest(speler) //Waarschijnlijk nog niet goed
     {
         qCompleted = true;
-        player.CompletedQuests.Add(qName); //Waarschijnlijk nog niet goed
+        speler.CompletedQuests.Add(qName); //Waarschijnlijk nog niet goed
         Console.WriteLine($"You have completed the quest {qName}!");
         Console.WriteLine("Here's your reward: ");
     }
