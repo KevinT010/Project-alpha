@@ -20,9 +20,9 @@ public class Battle_against_3_monsters
             Monster monster = new Monster(
                 monster_template.ID,
                 monster_template.Name,
+                monster_template.MaximumDamage,
                 monster_template.CurrentHitPoints,
-                monster_template.MaximumHitPoints,
-                monster_template.MaximumDamage
+                monster_template.MaximumHitPoints
             );
 
             string result = Battle.StartFight(player, monster);
