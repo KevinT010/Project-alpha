@@ -22,6 +22,9 @@ public class Program
 
         bool isPlaying = true;
 
+        Console.WriteLine($"\nYou are at {player.CurrentLocation.Name}");
+        Console.WriteLine($"{player.CurrentLocation.Description}");
+
         while (isPlaying)
         {
             if (player.CurrentHitPoints <= 0)
@@ -29,9 +32,6 @@ public class Program
                 isPlaying = false;
                 continue;
             }
-
-            Console.WriteLine($"\n You are at {player.CurrentLocation.Name}");
-            Console.WriteLine($"{player.CurrentLocation.Description}");
 
             Console.WriteLine($"\nWhat would u like to do?");
             Console.WriteLine($"1. See game stats");
@@ -67,7 +67,7 @@ public class Program
 
     public static void Travel(Player player)
     {
-        Console.WriteLine($"\nYou are now at: {player.CurrentLocation.Name}.\nFrom here you can go:\n");
+        Console.WriteLine("\nFrom here you can go:\n");
         
         if(player.CurrentLocation.LocationToNorth != null)
         {
@@ -86,7 +86,7 @@ public class Program
             Console.WriteLine($"W - West: {player.CurrentLocation.LocationToWest.Name}");
         }
 
-        Console.WriteLine("> "); 
+        Console.WriteLine("> ");
         string direction = Console.ReadLine().ToUpper();
 
         switch (direction)
@@ -109,6 +109,7 @@ public class Program
         }
         
         Console.WriteLine($"You are now at: {player.CurrentLocation.Name}");
+        Console.WriteLine($"{player.CurrentLocation.Description}");
         
         if (player.CurrentLocation.QuestAvailableHere != null)
         {
@@ -145,6 +146,10 @@ public class Program
                 {
                     player.CurrentLocation = safeRetreat;
                 }
+            }
+            else if(areaQuest != null && !areaQuest.Started)
+            {
+                Console.WriteLine("You see movement up ahead yet lose sight of the cause, perhaps someone has more information.");
             }
         }
     }
