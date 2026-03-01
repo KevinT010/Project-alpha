@@ -43,7 +43,14 @@ public class Player
     {
         if (CurrentLocation.LocationToEast != null)
         {
+            if(CurrentLocation.LocationToEast.Name == "Bridge" && CompletedQuests.Count != 2)
+            {
+                Console.WriteLine($"The bridge ahead leads to a dark forest, you feel that you aren't quite ready yet. ({CompletedQuests.Count}/2) Quests completed");
+            }
+            else
+            {
             CurrentLocation = CurrentLocation.LocationToEast;
+            }
         }
         else
         {
